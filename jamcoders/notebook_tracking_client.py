@@ -31,7 +31,7 @@ from .common import EVENT
 # Constants
 ####################################################################################################
 
-SERVER_URL = "https://shaferjo.pythonanywhere.com"
+SERVER_URL = "https://jamescheng.pythonanywhere.com"
 ASSERTION_URL = urljoin(SERVER_URL, "notebook_tracker/assertion/")
 
 

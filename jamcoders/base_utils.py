@@ -20,7 +20,7 @@ class NotebookTracking:
             cls.tracker = None
 
 # Turn this line on when tracking is intended
-# NotebookTracking.set_activation(True)
+NotebookTracking.set_activation(True)
 
 # For comparison of answers
 def assert_equal(want, got):
