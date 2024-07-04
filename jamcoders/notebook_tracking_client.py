@@ -75,6 +75,7 @@ class NotebookTracker():
         if "notebook_name" in locals():
             return notebook_name
         else:
+            print("Notebook name not found.")
             return None
         
     @staticmethod
