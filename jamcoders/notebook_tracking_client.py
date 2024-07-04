@@ -72,6 +72,7 @@ class NotebookTracker():
         #     return requests.get(f"http://{ip}:9000/api/sessions").json()[0]["name"]
         # except:
         #     return None
+        print(locals())
         if "notebook_name" in locals():
             return notebook_name
         else:
