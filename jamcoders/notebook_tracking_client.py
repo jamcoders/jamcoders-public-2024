@@ -80,7 +80,7 @@ class NotebookTracker():
         module_globals = vars(module)
 
         if "notebook_name" in module_globals:
-            return notebook_name
+            return module_globals["notebook_name"]
         else:
             print("Notebook name not found.")
             return None
