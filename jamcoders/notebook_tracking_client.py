@@ -20,6 +20,7 @@ import inspect
 import requests
 import socket
 import subprocess
+import importlib
 
 from urllib.parse import urljoin
 from google.colab import auth
@@ -72,8 +73,13 @@ class NotebookTracker():
         #     return requests.get(f"http://{ip}:9000/api/sessions").json()[0]["name"]
         # except:
         #     return None
-        print(globals())
-        if "notebook_name" in globals():
+        # Dynamically import colab module
+        module = importlib.import_module("__main__")
+
+        # Access the module's global variables
+        module_globals = vars(module)
+
+        if "notebook_name" in module_globals():
             return notebook_name
         else:
             print("Notebook name not found.")
