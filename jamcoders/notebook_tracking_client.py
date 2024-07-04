@@ -67,10 +67,14 @@ class NotebookTracker():
         """
         This is a hack and may break in the future if colab change their implementation.
         """
-        try:
-            ip = socket.gethostbyname(socket.gethostname())
-            return requests.get(f"http://{ip}:9000/api/sessions").json()[0]["name"]
-        except:
+        # try:
+        #     ip = socket.gethostbyname(socket.gethostname())
+        #     return requests.get(f"http://{ip}:9000/api/sessions").json()[0]["name"]
+        # except:
+        #     return None
+        if "notebook_name" in locals():
+            return notebook_name
+        else:
             return None
         
     @staticmethod
