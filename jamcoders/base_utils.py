@@ -39,6 +39,7 @@ def assert_equal(want, got):
         print(f"Got:  {repr(got)} (type: {type(got).__name__})")
         print("-------------------------------------")
         print()
+    return assert_passed
 
 
 # Encodes ASCII string to base64
