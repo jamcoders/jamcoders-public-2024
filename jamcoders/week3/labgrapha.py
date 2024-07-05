@@ -1,10 +1,18 @@
+from base_utils import *
+
 # For answer checking without revealing the answer
 def check_answers(answer, correct, subset=False):
     if subset and (answer in correct):
-            print(f"Your answer is correct!")
+        if NotebookTracking.is_active():
+            NotebookTracking.tracker.send_assertion_event(True) 
+        print(f"Your answer is correct!")
     elif correct == answer:
+        if NotebookTracking.is_active():
+            NotebookTracking.tracker.send_assertion_event(True)
         print(f"Your answer is correct!")
     else:
+        if NotebookTracking.is_active():
+            NotebookTracking.tracker.send_assertion_event(True)
         print(f"Your answer: '{answer}' is wrong :( try again!")
 
 
