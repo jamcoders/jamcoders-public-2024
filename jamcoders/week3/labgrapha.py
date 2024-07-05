@@ -1,4 +1,4 @@
-from base_utils import *
+from jamcoders.base_utils import *
 
 # For answer checking without revealing the answer
 def check_answers(answer, correct, subset=False):
