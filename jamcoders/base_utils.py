@@ -109,7 +109,7 @@ def check_answers_with_num(answer, correct, num):
     check_passed = (correct == answer)
 
     if NotebookTracking.is_active():
-        NotebookTracking.tracker.send_assertion_event(check_passed)
+        NotebookTracking.tracker.send_assertion_event_with_num(check_passed, num)
     
     if check_passed:
         print(f"Your answer to Question {num} is correct!")
