@@ -41,6 +41,27 @@ def assert_equal(want, got):
         print()
     return assert_passed
 
+def assert_equal_with_num(want, got, num):
+
+    assert_passed = (want == got or (type(want) == float and type(got) == float and abs(want - got) < 0.001))
+
+    if NotebookTracking.is_active():
+        NotebookTracking.tracker.send_assertion_event_with_num(assert_passed, num)
+
+    if assert_passed:
+        print("Test case passed.")
+    else:
+        print()
+        print("--------- Test case failed. ---------")
+        print(f"Want: {repr(want)} (type: {type(want).__name__})")
+        print(f"Got:  {repr(got)} (type: {type(got).__name__})")
+        print("-------------------------------------")
+        print()
+
+    return assert_passed
+
+
+
 
 # Encodes ASCII string to base64
 def encode_base64(str):

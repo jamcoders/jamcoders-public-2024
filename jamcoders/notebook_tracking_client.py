@@ -117,6 +117,17 @@ class NotebookTracker():
             assertions_result,
         )
     
+    def send_assertion_event_with_num(self, assertions_result, num):
+        assert self.is_initialized, (
+            f"Must call init() before using send_assertion_event()."
+        )
+        self._send_assertion_event(
+            self.current_user_email,
+            self.current_notebook_id,
+            num,
+            assertions_result,
+        )
+    
     @staticmethod
     def _send_assertion_event(email_address, notebook_id, cell_id, result):
         post_data = {
