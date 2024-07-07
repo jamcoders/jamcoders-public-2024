@@ -27,8 +27,8 @@ def assert_equal(want, got):
 
     assert_passed = (want == got or (type(want) == float and type(got) == float and abs(want - got) < 0.001))
 
-    if NotebookTracking.is_active():
-        NotebookTracking.tracker.send_assertion_event(assert_passed)
+    # if NotebookTracking.is_active():
+    #     NotebookTracking.tracker.send_assertion_event(assert_passed)
 
     if assert_passed:
         print("Test case passed.")
