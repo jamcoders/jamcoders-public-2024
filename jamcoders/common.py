@@ -1,5 +1,6 @@
 class EVENT:
     STUDENT_EMAIL_ADDRESS = "student_email_address"
+    STUDENT_NAME = "student_name"
     NOTEBOOK_ID = "notebook_id"
     CELL_ID = "cell_id"
     ASSERTION_RESULT = "assertion_result"

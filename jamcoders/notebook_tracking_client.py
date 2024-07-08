@@ -62,6 +62,20 @@ class NotebookTracker():
             return email_address
         except:
             return None
+    
+    @staticmethod
+    def get_user_name():
+        # Dynamically import colab module
+        module = importlib.import_module("__main__")
+
+        # Access the module's global variables
+        module_globals = vars(module)
+
+        if "name" in module_globals:
+            return module_globals["name"]
+        else:
+            print("User name not found.")
+            return None
 
     @staticmethod
     def get_notebook_name():
@@ -122,16 +136,16 @@ class NotebookTracker():
             f"Must call init() before using send_assertion_event()."
         )
         self._send_assertion_event(
-            self.current_user_email,
+            self.current_user_name,
             self.current_notebook_id,
             num,
             assertions_result,
         )
     
     @staticmethod
-    def _send_assertion_event(email_address, notebook_id, cell_id, result):
+    def _send_assertion_event(name, notebook_id, cell_id, result):
         post_data = {
-            EVENT.STUDENT_EMAIL_ADDRESS: email_address, 
+            EVENT.STUDENT_NAME: name, 
             EVENT.NOTEBOOK_ID: notebook_id,
             EVENT.CELL_ID: cell_id,
             EVENT.ASSERTION_RESULT: result,
@@ -148,6 +162,6 @@ class NotebookTracker():
         We don't want to put this in __init__() because it performs network operations and requires 
         user interaction (login to google).
         """
-        self.current_user_email = self.get_user_email()
+        self.current_user_name = self.get_user_name()
         self.current_notebook_id = self.get_notebook_name()
         self.is_initialized = True
