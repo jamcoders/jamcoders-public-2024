@@ -43,7 +43,7 @@ ASSERTION_URL = urljoin(SERVER_URL, "notebook_tracker/assertion/")
 class NotebookTracker():
 
     is_initialized = False
-    current_user_email = None
+    current_user_name = None
     current_notebook_id = None
 
     ################################################################################################
@@ -125,7 +125,7 @@ class NotebookTracker():
             f"Must call init() before using send_assertion_event()."
         )
         self._send_assertion_event(
-            self.current_user_email,
+            self.current_user_name,
             self.current_notebook_id,
             self.get_cell_id(),
             assertions_result,
