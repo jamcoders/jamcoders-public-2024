@@ -71,8 +71,8 @@ class NotebookTracker():
         # Access the module's global variables
         module_globals = vars(module)
 
-        if "name" in module_globals:
-            return module_globals["name"]
+        if "student_name" in module_globals:
+            return module_globals["student_name"]
         else:
             print("User name not found.")
             return None
@@ -143,9 +143,9 @@ class NotebookTracker():
         )
     
     @staticmethod
-    def _send_assertion_event(name, notebook_id, cell_id, result):
+    def _send_assertion_event(student_name, notebook_id, cell_id, result):
         post_data = {
-            EVENT.STUDENT_NAME: name, 
+            EVENT.STUDENT_NAME: student_name, 
             EVENT.NOTEBOOK_ID: notebook_id,
             EVENT.CELL_ID: cell_id,
             EVENT.ASSERTION_RESULT: result,
