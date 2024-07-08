@@ -115,6 +115,8 @@ def check_answers_with_num(answer, correct, num):
         print(f"Your answer to Question {num} is correct!")
     else:
         print(f"Your answer to Question {num}: '{answer}' is wrong :( try again!")
+    
+    return check_passed
 
 def check_answers_multi(answer, correct):
     check_passed = (correct == answer)
