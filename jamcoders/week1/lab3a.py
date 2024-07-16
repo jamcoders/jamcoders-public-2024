@@ -19,9 +19,9 @@ check_answer_4a = create_check_answer(9, '4a')
 check_answer_4b = create_check_answer(3, '4b')
 check_answer_6 = create_check_answer(25, '6')
 
-check_6_1_100 = create_check_answer(1000,'6.1 (100)')
-check_6_1_123456 = create_check_answer(1234566,'6.1 (123456)')
-check_6_1_420 = create_check_answer(4200,'6.1 (420)')
+check_6_1_100 = create_check_answer(103,'6.1 (100)')
+check_6_1_5 = create_check_answer(8,'6.1 (5)')
+check_6_1_420 = create_check_answer(422,'6.1 (420)')
 
 check_answer_8_1a = create_check_answer('10 5', '8.1 (a)')
 check_answer_8_1b = create_check_answer('0', '8.1 (b)')
